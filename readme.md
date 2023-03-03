@@ -14,11 +14,11 @@ A simple Go oackage to encrypt strings
 package main
 
 import (
-    "github.com/dlazz/secrets"
+    "github.com/dlazz/go-secrets"
     "log"
     "fmt"
 )
-var EncriptionKey = "0123456789abcfdef"
+var EncriptionKey = "0123456789abcdef"
 
 func main(){
     secrets.Init(EncryptionKey)
@@ -35,4 +35,10 @@ func main(){
     }
     fmt.Println("original string: ", decryptedString)
 }
+```
+
+You can embed your encryption key while building, using go ldflags
+
+```sh
+	go build  -ldflags="-X 'main.EncryptionKey=xyzxyz1234567890'" 
 ```
